@@ -1,31 +1,44 @@
-document.body.style.backgroundImage = "linear-gradient(#4ca1af, #c4e0e5)";
+"use strict";
+
+document.body.style.backgroundColor = "#E0F0FD";
 
 let elForm = document.querySelector(".form");
-let elFormInput = document.querySelector(".form-input");
-let elTaskList = document.querySelector(".task-list");
-let elTaskItem = document.querySelector(".task-item");
+let elInput = document.querySelector(".form__input");
+let elList = document.querySelector(".list");
 
-let htmlTemplate = function(todo) {
-    let elTaskItem = `
-    <li class="task-item">${todo}<span class="del">X</span></li>
-    `;
+let todosArr = [];
 
-    elTaskList.innerHTML += elTaskItem
+let todoRender = function (arr, element) {
+    arr.forEach(newArr => {
+        let elListItem = document.createElement("li");
+        let elCloseBtn = document.createElement("button");
+
+        elListItem.setAttribute("class", "list__item");
+        elCloseBtn.setAttribute("class", "close__btn");
+
+        elListItem.textContent = newArr.name
+
+        element.appendChild(elListItem);
+        elListItem.appendChild(elCloseBtn);
+
+    });
 }
 
-elForm.addEventListener("submit", function(evt) {
+elForm.addEventListener("submit", function (evt) {
     evt.preventDefault()
 
-    let todo = elFormInput.value;
+    let inputValue = elInput.value;
 
-    if (todo.length) {
-        htmlTemplate(todo)
-        elForm.reset();
+    let todosObj = {
+        id: todosArr.length,
+        name: inputValue,
+        isCompleted: false,
     }
-})
 
-elTaskList.addEventListener("click", evt => {
-    if (evt.target.classList.contains("del")) {
-        evt.target.parentElement.remove();
-    }
+    todosArr.push(todosObj);
+
+    elList.innerHTML = null;
+    elInput.value = null;
+
+    todoRender(todosArr, elList)
 })

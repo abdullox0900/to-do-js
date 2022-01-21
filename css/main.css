@@ -5,131 +5,112 @@
 }
 
 body {
-    position: relative;
-    height: 100vh;
+    /* height: 100vh; */
     font-family: sans-serif;
 }
 
 .wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 450px;
-    height: 90%;
-    text-align: center;
-    border-radius: 15px;
-    background-color: #fff;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* display: flex;
+    justify-content: center; */
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 30px;
+    width: 270px;
+    height: 500px;
+    border-radius: 35px;
+    background-color: #4385f5;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
 
 .wrapper__header {
-    font-size: 35px;
-    color: #474747;
-    margin: 30px 0px 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
 }
 
-.row {
+.form {
     position: relative;
-    padding: 0px 40px;
+    top: 40px;
 }
 
-input {
-    padding: 20px 25px;
-    width: 100%;
+.form__input {
+    padding: 15px 15px;
+    color: #fff;
+    font-weight: 600;
     border: none;
     outline: none;
-    border-radius: 35px;
-    background-color: #fff;
-    box-shadow: 0px 7px 33px -4px rgba(0, 0, 0, 0.14);
+    border-radius: 15px;
+    background-color: #1E79FE;
 }
 
-input::placeholder {
-    font-size: 16px;
-    color: #aaa;
-    font-family: sans-serif;
-}
-
-.icon {
-    padding: 0px 10px;
-    position: relative;
-    right: -42%;
-    top: -47px;
-    width: auto;
-    font-size: 35px;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #5cb85c;
-}
-
-.icon:hover {
-    opacity: 0.9;
-}
-
-.icon:active {
-    opacity: 0.6;
-}
-
-.wrapper__header-two {
-    font-size: 24px;
-    color: #474747;
-    margin: 20px 0px 40px;
-}
-
-.task-list {
-    list-style: none;
-    text-align: left;
-}
-
-.task-item {
-    position: relative;
-    padding: 20px 25px;
-    color: #aaa;
-    margin-bottom: 17px;
-    border-radius: 35px;
-    background-color: #fff;
-    box-shadow: 0px 7px 33px -4px rgba(0, 0, 0, 0.14);
-}
-
-.del {
-    padding: 10px 16px;
+.form__btn {
     position: absolute;
-    right: 9px;
-    top: 6px;
-    font-size: 22px;
+    top: 8px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
     border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0px 0px 23px -5px rgba(0, 0, 0, 0.15);
-    transition: all .3s ease;
+    background-color: #fff;
 }
 
-.del:hover {
+.form__input::placeholder {
     color: #fff;
-    background-color: red;
 }
 
-@media only screen and (max-width: 480px) {
-    .wrapper {
-        width: 320px;
-    }
-    .wrapper__header {
-        font-size: 25px;
-        font-weight: 500;
-    }
-    .row {
-        padding: 0px 20px;
-    }
-    .wrapper__header-two {
-        font-size: 20px;
-    }
-    .icon {
-        right: -38%;
-    }
+.list {
+    position: relative;
+    top: 90px;
+    left: -30px;
+    width: 270px;
+    height: 350px;
+    padding: 20px;
+    list-style: none;
+    border-radius: 30px;
+    background-color: #fff
 }
 
-@media only screen and (max-width: 340px) {
-    .wrapper {
-        width: 280px;
-    }
+.list {
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.list__item {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 15px 15px 15px 15px;
+    top: 0px;
+    color: rgba(128, 128, 128, 0.801);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    transition: 0.4s;
+}
+
+.list__item:hover {
+    top: -3px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.close__btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-image: url("../img/icons8-close.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 18px;
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.151);
 }
