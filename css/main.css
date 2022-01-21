@@ -10,8 +10,7 @@ body {
 }
 
 .wrapper {
-    /* display: flex;
-    justify-content: center; */
+    position: relative;
     margin: 0 auto;
     margin-top: 60px;
     padding: 30px;
@@ -53,6 +52,7 @@ body {
     font-weight: 600;
     border: none;
     border-radius: 50%;
+    cursor: pointer;
     background-color: #fff;
 }
 
@@ -88,6 +88,7 @@ body {
     margin-bottom: 10px;
     padding: 15px 15px 15px 15px;
     top: 0px;
+    overflow: hidden;
     color: rgba(128, 128, 128, 0.801);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -97,6 +98,16 @@ body {
 .list__item:hover {
     top: -3px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.list__item::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -2px;
+    width: 5px;
+    height: 50px;
+    background-color: #00a1ff;
 }
 
 .close__btn {
@@ -113,4 +124,29 @@ body {
     background-size: 18px;
     cursor: pointer;
     background-color: rgba(128, 128, 128, 0.151);
+}
+
+.wrap__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0px;
+    width: 270px;
+    height: 100px;
+    padding: 20px;
+    border-radius: 35px;
+    background-color: #111427;
+    /* z-index: 11; */
+}
+
+.btn {
+    padding: 3px 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+}
+
+.btn+.btn {
+    margin-left: 8px;
 }
