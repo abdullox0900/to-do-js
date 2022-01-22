@@ -5,7 +5,7 @@ document.body.style.backgroundColor = "#E0F0FD";
 let elForm = document.querySelector(".form");
 let elInput = document.querySelector(".form__input");
 let elList = document.querySelector(".list");
-let elBtnClear = document.querySelector(".btn-crear");
+let elBtnClear = document.querySelector(".btn-clear");
 
 let todosArr = [];
 
