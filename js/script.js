@@ -23,7 +23,6 @@ elList.addEventListener("click", function (evt) {
 })
 
 elBtnClear.addEventListener("click", function () {
-    // elList.innerHTML = null;
     todosArr.splice(0, todosArr.length);
     elList.innerHTML = null;
 })
