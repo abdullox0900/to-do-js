@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icongit" href="./img/check-circle.svg">
+    <link rel="icon" href="./img/check-circle.svg">
     <link rel="stylesheet" href="./css/main.css">
     <title>Todo</title>
 </head>
@@ -19,16 +19,15 @@
         <form class="form">
             <input class="form__input" type="text" required placeholder="Add..">
             <button class="form__btn">+</button>
-
         </form>
 
         <ul class="list">
         </ul>
 
         <div class="wrap__button">
-            <button class="btn btn-all">All</button>
-            <button class="btn btn-com">Completed</button>
-            <button class="btn btn-uncom">Uncompleted</button>
+            <button class="btn btn-all">All <span class="btn-res res-all">0</span></button>
+            <button class="btn btn-com">Completed <span class="btn-res res-com">0</span></button>
+            <button class="btn btn-uncom">Uncompleted <span class="btn-res res-uncom">0</span></button>
             <button class="btn btn-clear">Clear</button>
         </div>
 
