@@ -15,29 +15,7 @@ let elAllBtn = document.querySelector(".btn-all");
 let elComBtn = document.querySelector(".btn-com");
 let elUncomBtn = document.querySelector(".btn-uncom");
 
-let todosArr = [];
-
-elList.addEventListener("click", function (evt) {
-    if (evt.target.matches(".close__btn")) {
-        let todoIdBtn = evt.target.dataset.todoId * 1;
-        let todoFound = todosArr.findIndex((todo) => todo.id === todoIdBtn);
-
-        todosArr.splice(todoFound, 1);
-        elList.innerHTML = null;
-
-        todoRender(todosArr, elList);
-    }
-    if (evt.target.matches(".item__checkbox")) {
-        let checkboxTodoId = evt.target.dataset.checkId * 1;
-        let foundCheckTodo = todosArr.find((todo) => todo.id === checkboxTodoId);
-
-        foundCheckTodo.isCompleted = !foundCheckTodo.isCompleted;
-        elList.innerHTML = null;
-
-        todoRender(todosArr, elList)
-    }
-})
-
+// RENDER-TODOS
 let todoRender = function (arr, element) {
     arr.forEach(newArr => {
 
@@ -71,6 +49,40 @@ let todoRender = function (arr, element) {
     });
 }
 
+// LOCAL-STORAGE
+const todosLocal = JSON.parse(window.localStorage.getItem("todosLocal"))
+
+let todosArr = todosLocal || [];
+
+todoRender(todosArr, elList);
+
+// EL-LIST
+elList.addEventListener("click", function (evt) {
+    if (evt.target.matches(".close__btn")) {
+        let todoIdBtn = evt.target.dataset.todoId * 1;
+        let todoFound = todosArr.findIndex((todo) => todo.id === todoIdBtn);
+
+        todosArr.splice(todoFound, 1);
+        elList.innerHTML = null;
+
+        window.localStorage.setItem("todosLocal", JSON.stringify(todosArr));
+
+        todoRender(todosArr, elList);
+    }
+    if (evt.target.matches(".item__checkbox")) {
+        let checkboxTodoId = evt.target.dataset.checkId * 1;
+        let foundCheckTodo = todosArr.find((todo) => todo.id === checkboxTodoId);
+
+        foundCheckTodo.isCompleted = !foundCheckTodo.isCompleted;
+        elList.innerHTML = null;
+
+        window.localStorage.setItem("todosLocal", JSON.stringify(todosArr));
+
+        todoRender(todosArr, elList)
+    }
+})
+
+// EL-FORM
 elForm.addEventListener("submit", function (evt) {
     evt.preventDefault()
 
@@ -82,6 +94,7 @@ elForm.addEventListener("submit", function (evt) {
         isCompleted: false,
     }
 
+    window.localStorage.setItem("todosLocal", JSON.stringify(todosArr));
     todosArr.push(todosObj);
 
     elList.innerHTML = null;
